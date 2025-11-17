@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew News - Your Trusted News Source</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "contentful": "https://esm.sh/contentful@10.12.9",
+    "@contentful/rich-text-types": "https://aistudiocdn.com/@contentful/rich-text-types@^17.2.5",
+    "@contentful/rich-text-react-renderer": "https://aistudiocdn.com/@contentful/rich-text-react-renderer@^16.1.6"
+  }
+}
+</script>
+<!-- Netlify will inject API keys here -->
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
