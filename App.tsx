@@ -7,10 +7,10 @@ import ArticlePage from './pages/ArticlePage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import type { Article } from './types';
-// Temporarily using local mock data for realistic content as requested.
-// To switch back to Contentful, uncomment the line below and the useEffect hook.
-// import { contentfulService } from './services/contentfulService';
-import { allArticles } from './data/mockArticles';
+// The app will now fetch data from Contentful.
+import { contentfulService } from './services/contentfulService';
+// The local mock data is no longer needed.
+// import { allArticles } from './data/mockArticles';
 
 
 export type ViewState = {
@@ -20,11 +20,8 @@ export type ViewState = {
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewState>({ page: 'home' });
-  // The articles are now loaded from the local mock file.
-  const [articles] = useState<Article[]>(allArticles);
-
-  /*
-  // --- To re-enable Contentful, uncomment this section ---
+  
+  // --- This section is now active to fetch data from Contentful ---
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +42,6 @@ const App: React.FC = () => {
     };
     fetchArticles();
   }, []);
-  */
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,15 +52,13 @@ const App: React.FC = () => {
   };
 
   const renderPage = () => {
-    /*
-    // --- To re-enable Contentful, uncomment this section ---
+    // --- Loading and Error states are now active for a better user experience ---
     if (loading) {
       return <div className="flex justify-center items-center h-screen"><p className="text-2xl">Loading news...</p></div>;
     }
     if (error) {
       return <div className="flex justify-center items-center h-screen"><p className="text-2xl text-red-500">{error}</p></div>;
     }
-    */
 
     switch (view.page) {
       case 'home':
